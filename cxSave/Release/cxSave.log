@@ -1,4 +1,4 @@
-﻿生成启动时间为 2015/6/9 11:19:01。
+﻿生成启动时间为 2015/6/9 10:55:35。
      1>项目“D:\GitLH\cxSave\cxSave\cxSave.vcxproj”在节点 2 上(Rebuild 个目标)。
      1>ClCompile:
          C:\Program Files (x86)\Microsoft Visual Studio 12.0\VC\bin\CL.exe /c /Zi /nologo /W3 /WX- /O2 /Oi /Oy- /GL /D WIN32 /D NDEBUG /D _WINDOWS /D _UNICODE /D UNICODE /Gm- /EHsc /MD /GS /Gy /fp:precise /Zc:wchar_t /Zc:forScope /Yc"stdafx.h" /Fp"Release\cxSave.pch" /Fo"Release\\" /Fd"Release\vc120.pdb" /Gd /TP /analyze- /errorReport:prompt stdafx.cpp
@@ -31,4 +31,4 @@
 
 生成成功。
 
-已用时间 00:00:04.21
+已用时间 00:00:03.85
