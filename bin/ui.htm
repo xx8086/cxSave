@@ -1,0 +1,185 @@
+﻿<html>
+<head><style>
+
+html 
+{ 
+	font:10pt Verdana; 
+	background-color:pink;
+	background-image:url(ui.jpg); 
+	background-repeat:expand stretch-left stretch-middle stretch-right;
+		//background-repeat:stretch;
+	padding:100% 100% 100% 100%;
+}
+
+
+.tabs 
+{
+  font:system;
+  behavior:tabs;
+  height:*;
+  width:*;
+  overflow:hidden;
+}
+
+.tabs > .strip
+{
+  flow: horizontal;
+  width:*;
+  padding: 4px 10px 0 5px;
+  border-bottom:1px solid threedshadow;  
+}
+
+.tabs > .strip > [panel] /* the tab having panel attribute, passive by default */
+{
+  padding: 3px 8px;
+  height: *; /* span the whole row */
+  max-width: auto; /* not wider than max-intrinsic  */
+  //background-color: window;
+  border-radius: 12 70 0 0;
+  border-style:solid;
+  border-color:threedshadow;
+  border-width:1px 1px 0 1px;
+  margin:0 -1px;
+  cursor:pointer;
+}
+
+.tabs > .strip > [panel]:nth-child(1) { background-color:bisque; }
+.tabs > .strip > [panel]:nth-child(2) { background-color:lavender; }
+.tabs > .strip > [panel]:nth-child(3) { background-color:red; }
+.tabs > .strip > [panel]:nth-child(4) { background-color:green; }
+.tabs > .strip > [panel]:nth-child(5) { background-color:pink; }
+
+.tabs > .strip > [panel]:hover 
+{
+  margin:-2px -2px -1px -2px;
+  padding: 4px 10px 5px 10px;
+  background-color-bottom-right: window;
+  background-color-bottom-left: window;
+
+  color:blueviolet;
+}
+
+.tabs > .strip > [panel]:current  
+{
+  margin:-4px -4px -1px -2px;
+  padding: 4px 10px 5px 10px; 
+  //background-color-bottom-right: window;
+  //background-color-bottom-left: window;
+  position:relative;
+  border-color:red;
+}
+
+.tabs > [name] { display:none; }
+.tabs > [name]:expanded // current panel
+{ 
+  padding:4px;
+  display:block; 
+  width:*;
+  height:*;
+  border:1px solid threedshadow;
+  //background-color:white;
+  border-radius:0 0 3 3;
+  border-top-style:none; 
+  //background-image:url(ui.jpg);  
+}
+
+.cantfind,.cantkeep,.cantfindall,.cantdelete
+{
+	display:none;
+	//color:blue;
+	height:22;
+}
+
+.cantfind1,.cantfind2,.cantkeep1,
+.cantfindall1,.cantfindall2,
+.cantdelete1,.cantdelete2
+{
+	font:italic bold 22px arial,sans-serif;
+}
+
+.mypassword,.mpassword2,.mpassword3,.mpassword5,
+.mycoundnumber_keep,.mycoundnumber_find,.mycoundnumber_delete,
+.mycoundpassword
+{
+	size: *;
+}
+
+.cantfindall1
+{
+	behavior: htmlarea;
+}
+
+</style></head>
+
+<body>
+
+   <h1>密码保存小工具@白云出岫</h1>
+   <div .tabs>
+   
+      <div .strip>
+         <div panel="panel-id1">保存</div>
+         <div panel="panel-id2">查找</div>
+		 <div panel="panel-id5">删除</div>
+		 <div panel="panel-id3">ALL</div>
+         <div panel="panel-id4" selected>hello</div>
+      </div>
+	  
+      <div name="panel-id1"> 
+			<p>我的小工具密码：<widget type="text"  maxlength="128" .mypassword /></p>
+			<p>保存账号：<widget type="text"  maxlength="128" .mycoundnumber_keep /></p>
+			<p>账号密码：<widget type="text"  maxlength="128" .mycoundpassword /></p>
+			<button name="keep">保存</button> 
+			<div .cantkeep>
+				<div .cantkeep1></div>
+			</div>
+      </div>
+	  
+      <div name="panel-id2" >		
+		<p>我的小工具密码：<widget type="text"  maxlength="128" .mpassword2 /></p>
+		<p>查询账号：<widget type="text"  maxlength="128" .mycoundnumber_find /></p>
+		<button name="find">查找</button>
+		
+		<div .cantfind>
+				<p .cantfind2></p>
+				<widget .cantfind1 type="text">YA MIE DIE            !</widget>
+		</div>
+	  </div>
+	  
+	  
+      <div name="panel-id5" >		
+		<p>我的小工具密码：<widget type="text"  maxlength="128" .mpassword5 /></p>
+		<p>删除账号：<widget type="text"  maxlength="128" .mycoundnumber_delete /></p>
+		<button name="delete">删除</button>
+		
+		<div .cantdelete>
+				<widget .cantdelete1 YA MIE DIE            !</widget>
+		</div>
+	  </div>
+	  
+	  <div name="panel-id3" >		
+		<p>我的小工具密码：<widget type="text"  maxlength="128" .mpassword3 /></p>
+		<button name="findall">查看全部</button>
+		<h3>查看所有保存的账号和密码,请确保所有账号都使用相通的小工具密码;
+		<br>复制下面的查询结果请用ctrl+c,占时没做右键复制功能</h3>
+		<div .cantfindall>
+				<p .cantfindall2></p>
+				<div .cantfindall1>YA MIE DIE            !</div>
+		</div>
+	  </div>
+	  
+      <div name="panel-id4" selected>
+	  <h3>功能介绍及说明：</h3>
+	  <p>1：保存,查找,删除 你的密码</p>
+	  <p>2：已经保存过的账号不予再次保存,可以删除后重新保存</p>
+	  <p>3：替换ui.jpg可更换背景；账号与密码加密保存在secret.lh ，建议自己弄个TXT保存要查找的账号自己记住小工具密码就OK</p>
+	  <p>4：占时还没做输入检测,每个输入栏中超过128个字符之后的不予输入</p>
+	  <p>5：可以对几个账号用不同的或同样的小工具密码，查询该帐号用保存时所使用的小工具密码，即每条存储或查找是根据（小工具密码＋账号）来确定的</p>
+	  <p>6：使用RC4和base64加密</p>
+	  <P>7：由于RC4本身的原因若小工具密码为连续的同样字符(如：111111或AAAAA或&&&&)再次输入其子集（111或AA或&）也能解密其全集，所以建议小工具密码至少含有两个以上的不同字符</P>
+	  <p>8：任何建议或反馈请给我发邮件liuhan333@126.com</p>
+	  </div>
+	  
+   </div>
+   
+</body>   
+</html>   

@@ -60,6 +60,9 @@ Temporary Items
 Thumbs.db
 ehthumbs.db
 *.sdf
+*.pdb
+*.log
+*.tlog
 
 # Folder config file
 Desktop.ini
