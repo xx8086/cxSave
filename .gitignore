@@ -63,6 +63,7 @@ ehthumbs.db
 *.pdb
 *.log
 *.tlog
+*.ipch
 
 # Folder config file
 Desktop.ini

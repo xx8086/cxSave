@@ -2,7 +2,14 @@
 #include "find_keep.h"
 #include ".\behaviors\behavior_tabs.cpp"
 
-void Keep(HELEMENT he)
+
+mainOption::mainOption()
+{}
+
+mainOption::~mainOption()
+{}
+
+void mainOption::Keep(HELEMENT he)
 {
 	dom::element ele(he);
 	dom::element root = ele.root();
@@ -44,6 +51,11 @@ void Keep(HELEMENT he)
 		text.append(L"±£´æ³É¹¦£¡");
 		aux::w2utf str(text);
 		my_ele.set_html((const unsigned char*)(const char*)str, str.length());
+
+		my_ele = root.find_first(".mycoundnumber_keep");
+		my_ele.clear();
+		my_ele = root.find_first(".mycoundpassword");
+		my_ele.clear();
 	}
 	else if( -1 == n )
 	{
@@ -53,7 +65,7 @@ void Keep(HELEMENT he)
 	}
 }
 
-void Find(HELEMENT he)
+void mainOption::Find(HELEMENT he)
 {
 	dom::element ele(he);
 	dom::element root = ele.root();
@@ -129,7 +141,7 @@ void Find(HELEMENT he)
 	}
 }
 
-void FindAll(HELEMENT he)
+void mainOption::FindAll(HELEMENT he)
 {
 	dom::element ele(he);
 	dom::element root = ele.root();
@@ -221,7 +233,7 @@ void FindAll(HELEMENT he)
 	}
 }
 
-void Delete(HELEMENT he)
+void mainOption::Delete(HELEMENT he)
 {
 	dom::element ele(he);
 	dom::element root = ele.root();
@@ -330,8 +342,7 @@ void Delete(HELEMENT he)
 	delete [] secret_password;
 }
 
-
-void OnButtonClick(HELEMENT button)
+void mainOption::OnButtonClick(HELEMENT button)
 {
 	dom::element ele(button);
 	std::wstring wstrName = ele.get_attribute("name");
@@ -353,8 +364,7 @@ void OnButtonClick(HELEMENT button)
 	}
 }
 
-
-int GetSecret(std::string str_text,std::string str_password,std::string& str_countsecret)
+int mainOption::GetSecret(std::string str_text, std::string str_password, std::string& str_countsecret)
 {
 	char* p = NULL;
 	char* q = NULL;

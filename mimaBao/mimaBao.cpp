@@ -21,6 +21,7 @@ BOOL        GetHtmlResource(LPCWSTR pszName, /*out*/PBYTE& pb, /*out*/DWORD& cb)
 LRESULT CALLBACK HTMLayoutNotifyHandler(UINT uMsg, WPARAM wParam, LPARAM lParam, LPVOID vParam);
 LRESULT OnAttachBehavior(LPNMHL_ATTACH_BEHAVIOR lpAB );
 
+mainOption	s_mianoption;
 //////////////////////////////////////////////////////////////////////
 int APIENTRY _tWinMain(HINSTANCE hInstance,
                      HINSTANCE hPrevInstance,
@@ -112,7 +113,7 @@ struct DOMEventsHandlerType: htmlayout::event_handler
       { 
         switch( params.cmd )
         {
-        case BUTTON_CLICK:              OnButtonClick(params.heTarget); break;// click on button
+		case BUTTON_CLICK:              s_mianoption.OnButtonClick(params.heTarget); break;// click on button
         case BUTTON_PRESS:              break;// mouse down or key down in button
         case BUTTON_STATE_CHANGED:      break;
         case EDIT_VALUE_CHANGING:       break;// before text change
